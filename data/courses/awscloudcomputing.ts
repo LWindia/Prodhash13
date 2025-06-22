@@ -188,7 +188,7 @@ export const awscloudcomputing: Course = {
   { src: "/assets/cources/programFor/programfor2.jpg", alt: "College Students", text: "Working professionals" },
   { src: "/assets/cources/programFor/programfor3.jpg", alt: "College Students", text: "Entrepreneurs" },
   { src: "/assets/cources/programFor/programfor4.jpg", alt: "College Students", text: "Freelancers" },
-  { src: "/assets/cources/programFor/programfor5.jpg", alt: "College Students", text: "Freshers boosting employability with DevOps skills" },
+  { src: "/assets/cources/programFor/programfor5.jpg", alt: "College Students", text: "Freshers" },
   { src: "/assets/cources/programFor/programfor6.jpg", alt: "College Students", text: "System Administrators" },
   { src: "/assets/cources/programFor/programfor7.jpg", alt: "College Students", text: "Security Engineers " },
   { src: "/assets/cources/programFor/programfor8.jpg", alt: "College Students", text: "Cloud Professionals " },
