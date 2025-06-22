@@ -197,17 +197,17 @@ export const machinelearning: Course = {
         },
     ],
     
-   programFor: [
-  { src: "/assets/cources/programFor/programfor1.jpg", alt: "College Students", text: "Students" },
-  { src: "/assets/cources/programFor/programfor2.jpg", alt: "College Students", text: "Working professionals" },
-  { src: "/assets/cources/programFor/programfor3.jpg", alt: "College Students", text: "Entrepreneurs" },
-  { src: "/assets/cources/programFor/programfor4.jpg", alt: "College Students", text: "Freelancers" },
-  { src: "/assets/cources/programFor/programfor5.jpg", alt: "College Students", text: "Freshers" },
-  { src: "/assets/cources/programFor/programfor6.jpg", alt: "College Students", text: "System Administrators" },
-  { src: "/assets/cources/programFor/programfor7.jpg", alt: "College Students", text: "Security Engineers " },
-  { src: "/assets/cources/programFor/programfor8.jpg", alt: "College Students", text: "Cloud Professionals " },
-  { src: "/assets/cources/programFor/programfor9.jpg", alt: "College Students", text: "Software Engineers " },
-  { src: "/assets/cources/programFor/programfor10.jpg", alt: "College Students", text: "Solution & Infrastructure Architects " },
+programFor: [
+  { src: "/assets/cources/programFor/programfor1.jpg", alt: "College Students", text: "Aspiring Students" },
+  { src: "/assets/cources/programFor/programfor2.jpg", alt: "College Students", text: "Working Professionals" },
+  { src: "/assets/cources/programFor/programfor3.jpg", alt: "College Students", text: "Tech Entrepreneurs" },
+  { src: "/assets/cources/programFor/programfor4.jpg", alt: "College Students", text: "Freelance Developers" },
+  { src: "/assets/cources/programFor/programfor5.jpg", alt: "College Students", text: "Fresh Graduates" },
+  { src: "/assets/cources/programFor/programfor6.jpg", alt: "College Students", text: "IT Professionals" },
+  { src: "/assets/cources/programFor/programfor7.jpg", alt: "College Students", text: "Data Analysts" },
+  { src: "/assets/cources/programFor/programfor8.jpg", alt: "College Students", text: "Software Engineers" },
+  { src: "/assets/cources/programFor/programfor9.jpg", alt: "College Students", text: "AI Enthusiasts" },
+  { src: "/assets/cources/programFor/programfor10.jpg", alt: "College Students", text: "ML Architects" }
 ],
 
   toolsData: {
