@@ -1154,6 +1154,36 @@ companies: [
   companiesLabel: "Top Companies Hiring Full Stack Developers",
   jobsLabel: "Global Job Openings",
   jobsDescription: "50,000+ openings on LinkedIn, Naukri, Indeed, and developer-focused platforms in 2024"
+},
+"devops-Aws-cloud-computing": {
+  "title": "DevOps & AWS Cloud Engineers – 2025 Job Outlook & Salaries",
+  "subtitle": "Massive Demand for DevOps Engineers Skilled in CI/CD, Kubernetes, Terraform, and AWS",
+  "salary": {
+    "label": "India Salary Range (Annual INR)",
+    "values": [700000, 1200000, 1800000, 2800000, 4500000] // Entry → Mid → Senior → Lead
+  },
+  "companies": [
+    "Amazon",
+    "Microsoft",
+    "Google",
+    "TCS",
+    "Infosys",
+    "Wipro",
+    "Cognizant",
+    "Capgemini",
+    "Accenture",
+    "Zoho",
+    "Freshworks",
+    "LTIMindtree"
+  ],
+  "demand": 97, // Relative demand index
+  "jobCount": "65,000+",
+  "description": "With the rapid adoption of cloud-native applications and infrastructure-as-code, DevOps Engineers with AWS expertise are essential in 2025. Skills in CI/CD, Kubernetes, Docker, Terraform, and monitoring tools make you a top asset across startups, enterprises, and global consultancies.",
+  "yearLabel": "In 2025",
+  "salaryLabel": "Average Annual Salaries (INR)",
+  "companiesLabel": "Top Companies Hiring DevOps Engineers",
+  "jobsLabel": "Global Job Openings",
+  "jobsDescription": "65,000+ active listings across LinkedIn, Naukri, Indeed, and cloud-focused job boards in 2024"
 }
 
 

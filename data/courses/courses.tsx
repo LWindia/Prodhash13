@@ -39,6 +39,7 @@ import { cybersecuritycryptography } from "./cybersecurity-cryptography";
 // import { promptengineering } from "./prompt-engineering";
 import { promptEngineering } from "./prompt-engineering";
 import { fullStackMERN } from "./fullStackMERN";
+
 import { awscloudcomputing } from "./awscloudcomputing";
 
 export const courseInfo: Course[] = [

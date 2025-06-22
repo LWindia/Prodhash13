@@ -1089,4 +1089,7 @@ export const faqContent: FAQContent = {
    "awscloudcomputing": {
     ...sharedSpecializationContent
   },
+  "devops-Aws-cloud-computing": {
+    ...sharedSpecializationContent
+  },
 };
