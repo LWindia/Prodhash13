@@ -1092,4 +1092,7 @@ export const faqContent: FAQContent = {
   "devops-Aws-cloud-computing": {
     ...sharedSpecializationContent
   },
+  "machine-learning-deep-learning": {
+    ...sharedSpecializationContent
+  },
 };

@@ -1184,7 +1184,39 @@ companies: [
   "companiesLabel": "Top Companies Hiring DevOps Engineers",
   "jobsLabel": "Global Job Openings",
   "jobsDescription": "65,000+ active listings across LinkedIn, Naukri, Indeed, and cloud-focused job boards in 2024"
+},
+
+"machine-learning-deep-learning": {
+  "title": "Machine Learning & Deep Learning – 2025 Job Outlook & Salaries",
+  "subtitle": "Explosive Demand for AI Engineers, ML Specialists, and Deep Learning Experts Across Industries",
+  "salary": {
+    "label": "India Salary Range (Annual INR)",
+    "values": [600000, 1000000, 1600000, 2400000, 4000000] // Entry → Mid → Senior → Lead
+  },
+  "companies": [
+    "Google",
+    "Amazon",
+    "Microsoft",
+    "IBM",
+    "TCS",
+    "Infosys",
+    "Wipro",
+    "Accenture",
+    "HCL",
+    "CureMetrix",
+    "Fractal Analytics",
+    "Mu Sigma"
+  ],
+  "demand": 94, // Relative demand index
+  "jobCount": "58,000+",
+  "description": "AI and ML continue to drive innovation across sectors like healthcare, finance, e-commerce, and manufacturing. Professionals skilled in Python, Scikit-learn, TensorFlow, and NLP are in high demand for roles in data science, ML engineering, and research.",
+  "yearLabel": "In 2025",
+  "salaryLabel": "Average Annual Salaries (INR)",
+  "companiesLabel": "Top Companies Hiring ML & DL Experts",
+  "jobsLabel": "Global Job Openings",
+  "jobsDescription": "58,000+ active listings across LinkedIn, Naukri, Indeed, and AI-focused job platforms in 2024"
 }
+,
 
 
  
