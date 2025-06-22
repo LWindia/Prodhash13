@@ -183,19 +183,19 @@ export const awscloudcomputing: Course = {
         },
     ],
     
-    programFor: [  // ✅ Fixed: DevOps-relevant roles
-        { src: "/assets/cources/courseDetails/devops/DevOps-Engineers.jpg", alt: "DevOps Engineers", text: "DevOps Engineers" },
-        { src: "/assets/cources/courseDetails/devops/Cloud-Engineers.jpg", alt: "Cloud Engineers", text: "Cloud Engineers" },
-        { src: "/assets/cources/courseDetails/devops/System-Administrators.jpg", alt: "System Administrators", text: "System Administrators" },
-        { src: "/assets/cources/courseDetails/devops/Infrastructure-Engineers.jpg", alt: "Infrastructure Engineers", text: "Infrastructure Engineers" },
-        { src: "/assets/cources/courseDetails/devops/Software-Developers.jpg", alt: "Software Developers", text: "Software Developers" },
-        { src: "/assets/cources/courseDetails/devops/SRE.jpg", alt: "Site Reliability Engineers", text: "Site Reliability Engineers" },
-        { src: "/assets/cources/courseDetails/devops/Technical-Leads.jpg", alt: "Technical Leads", text: "Technical Leads" },
-        { src: "/assets/cources/courseDetails/devops/Cloud-Architects.jpg", alt: "Cloud Architects", text: "Cloud Architects" },
-        { src: "/assets/cources/courseDetails/devops/IT-Professionals.jpg", alt: "IT Professionals", text: "IT Professionals" },
-        { src: "/assets/cources/courseDetails/devops/Students.jpg", alt: "Students", text: "Students" }
-    ],
-    
+   programFor: [
+  { src: "/assets/cources/programFor/programfor1.jpg", alt: "College Students", text: "Students" },
+  { src: "/assets/cources/programFor/programfor2.jpg", alt: "College Students", text: "Working professionals" },
+  { src: "/assets/cources/programFor/programfor3.jpg", alt: "College Students", text: "Entrepreneurs" },
+  { src: "/assets/cources/programFor/programfor4.jpg", alt: "College Students", text: "Freelancers" },
+  { src: "/assets/cources/programFor/programfor5.jpg", alt: "College Students", text: "Freshers boosting employability with DevOps skills" },
+  { src: "/assets/cources/programFor/programfor6.jpg", alt: "College Students", text: "System Administrators" },
+  { src: "/assets/cources/programFor/programfor7.jpg", alt: "College Students", text: "Security Engineers " },
+  { src: "/assets/cources/programFor/programfor8.jpg", alt: "College Students", text: "Cloud Professionals " },
+  { src: "/assets/cources/programFor/programfor9.jpg", alt: "College Students", text: "Software Engineers " },
+  { src: "/assets/cources/programFor/programfor10.jpg", alt: "College Students", text: "Solution & Infrastructure Architects " },
+],
+
     toolsData: {
         sectionTitle: "Tools & Technologies Covered in DevOps & AWS Cloud Computing",
         category: "DevOps & Cloud",
