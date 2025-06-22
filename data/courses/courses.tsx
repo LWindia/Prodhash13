@@ -41,6 +41,7 @@ import { promptEngineering } from "./prompt-engineering";
 import { fullStackMERN } from "./fullStackMERN";
 
 import { awscloudcomputing } from "./awscloudcomputing";
+import { mldl } from "./ml-dl";
 
 export const courseInfo: Course[] = [
  
@@ -97,7 +98,8 @@ export const courseInfo: Course[] = [
   cybersecuritycryptography,
   promptEngineering,
   fullStackMERN,
-  awscloudcomputing
+  awscloudcomputing,
+  mldl
  
   
  
