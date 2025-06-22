@@ -2,11 +2,11 @@
 import { Course } from "../../types/courses";
 export const awscloudcomputing :Course = {
     _id: "devops-Aws-cloud-computing ",
-    title: "[B] [R]DevOps & Aws Cloud Computing [/R] [/B] |",
+    title: "[B] [R]DevOps & AWS Cloud Training[/R] [/B] |",
     slug: "devops-Aws-cloud-computing",
     rating: 5,
     totalRatings: 10,
-    duration: "Online / Offline Training",
+    duration: "From Beginner to Advance Level",
     globalStatus: "GLOBALLY RECOGNISED PROGRAM",
     programBy: "Vimal Daga",
     hours: "10+",
