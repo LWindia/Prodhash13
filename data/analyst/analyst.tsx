@@ -1205,7 +1205,10 @@ companies: [
     "HCL",
     "CureMetrix",
     "Fractal Analytics",
-    "Mu Sigma"
+    "Mu Sigma",
+    "samsung",  
+    "Microsoft",  
+ 
   ],
   "demand": 94, // Relative demand index
   "jobCount": "58,000+",
