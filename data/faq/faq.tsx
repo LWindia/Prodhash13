@@ -1086,4 +1086,7 @@ export const faqContent: FAQContent = {
   "full-stack-mern": {
     ...sharedSpecializationContent
   },
+   "awscloudcomputing": {
+    ...sharedSpecializationContent
+  },
 };
