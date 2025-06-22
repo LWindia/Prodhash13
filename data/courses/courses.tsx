@@ -41,7 +41,9 @@ import { promptEngineering } from "./prompt-engineering";
 import { fullStackMERN } from "./fullStackMERN";
 
 import { awscloudcomputing } from "./awscloudcomputing";
-import { mldl } from "./ml-dl";
+// import { mldl } from "./ml-dl";
+import { machinelearning } from "./machinelearning";
+
 
 export const courseInfo: Course[] = [
  
@@ -99,7 +101,7 @@ export const courseInfo: Course[] = [
   promptEngineering,
   fullStackMERN,
   awscloudcomputing,
-  mldl
+  machinelearning,
  
   
  
