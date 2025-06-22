@@ -1,6 +1,7 @@
 
 import { Course } from "../../types/courses";
-export const awscloudcomputing :Course = {
+
+export const awscloudcomputing:Course = {
     _id: "devops-Aws-cloud-computing ",
     title: "[B] [R]DevOps & AWS Cloud Training[/R] [/B] |",
     slug: "devops-Aws-cloud-computing",
@@ -14,7 +15,8 @@ export const awscloudcomputing :Course = {
     originalPrice: 18000,
     enrolledStudents: 12000,
     category: "Web Scraping & Data Extraction",
-    shortDescription: "24th June, 2025 ",
+    shortDescription: "Industry Relevant & Recognized Training | Gain HandsOn Experience | Best-In-Class Content | Industry Use-Cases",
+
    paymentLink:"https://rzp.io/rzp/ZQbIl8C3",
     backgroundImage: "/assets/cources/fullstackmern/devops-and-cloud-computing.jpg",
  

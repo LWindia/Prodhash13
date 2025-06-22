@@ -29,6 +29,8 @@
     "axios": "^1.8.4",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
+    "browserslist": "^4.25.0",
+    "caniuse-lite": "^1.0.30001724",
     "chart.js": "^4.4.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
