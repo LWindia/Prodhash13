@@ -289,7 +289,7 @@ features: [
     sectionTitle: "Tools & Technologies Covered in MERN Stack",
     category: "Full Stack Web Development",
     toolsCount: "20+",
-    displayImage: "/assets/cources/fullstackmern/MERN-stack-banner.jpg",
+    displayImage: "/assets/cources/fullstackmern/MERN-technologies.jpg",
     tools: [
       {
         id: "",
