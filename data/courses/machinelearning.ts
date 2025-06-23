@@ -214,7 +214,7 @@ programFor: [
     sectionTitle: "Tools & Technologies Covered in Machine Learning & Deep Learning",
     category: "Machine Learning & AI",
     toolsCount: "20+",
-    displayImage: "/assets/cources/fullstackmern/ml-dl-technologies.jpg", // Update this path if needed
+    displayImage: "/assets/cources/fullstackmern/AI.jpg", // Update this path if needed
     tools: [
         {
             id: "",
