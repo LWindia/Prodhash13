@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { OfferLetterFormData } from '../../../../types/offerLetter';
 import lwlogo from "../../../../public/assets/OfferLetter/LW JAZBAA.png";
 import seal from "../../../../public/assets/OfferLetter/seal.png";
 import sign from "../../../../public/assets/OfferLetter/sign.png";
-import Image from 'next/image';
+// import Image from 'next/image'; // Replaced with standard <img> for PDF rendering
 
 interface HtmlOfferLetterProps {
   data: OfferLetterFormData;
@@ -11,6 +11,33 @@ interface HtmlOfferLetterProps {
 }
 
 const HtmlOfferLetter: React.FC<HtmlOfferLetterProps> = ({ data, innerRef }) => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  // Preload images to ensure they're available for PDF generation
+  useEffect(() => {
+    const preloadImages = async () => {
+      const imageUrls = [lwlogo.src, seal.src, sign.src];
+      const imagePromises = imageUrls.map((url) => {
+        return new Promise((resolve, reject) => {
+          const img = new window.Image();
+          img.onload = resolve;
+          img.onerror = reject;
+          img.src = url;
+        });
+      });
+
+      try {
+        await Promise.all(imagePromises);
+        setImagesLoaded(true);
+      } catch (error) {
+        console.error('Error preloading images:', error);
+        setImagesLoaded(true); // Continue anyway
+      }
+    };
+
+    preloadImages();
+  }, []);
+
   // Format today's date with ordinal suffix (1st, 2nd, 3rd, etc.)
   const formatDate = () => {
     const today = new Date();
@@ -49,21 +76,24 @@ const HtmlOfferLetter: React.FC<HtmlOfferLetterProps> = ({ data, innerRef }) => 
     return `LWIPL-${projectCode}-${year}-${serialNumber}`;
   };
 
+  if (!imagesLoaded) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div 
       ref={innerRef} 
       className="w-[210mm] h-[297mm] mx-auto bg-white relative font-sans hidden overflow-hidden"
     >
       {/* Background image */}
-      <Image 
+      <img
         src={lwlogo.src}
         alt="Background"
-        fill
-        className="absolute top-0 left-0 w-full h-full object-cover opacity-100 z-0"
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-10 z-0"
       />
 
       {/* Content container */}
-      <div className="relative z-10 pt-[60px] pl-[60px] pr-[60px] h-full box-border">
+      <div className="relative z-20 pt-[60px] pl-[60px] pr-[60px] h-full box-border">
         {/* Header: Ref and Date */}
         <div className="flex justify-between mb-8 text-sm font-medium">
           <div><span className="font-bold">Ref :</span> {generateRefNumber()}</div>
@@ -92,25 +122,25 @@ const HtmlOfferLetter: React.FC<HtmlOfferLetterProps> = ({ data, innerRef }) => 
           <p className="mb-1">Regards,</p>
           <p className="mb-2">LinuxWorld Informatics Pvt Ltd</p>
           {/* Signature and Seal Container */}
-          <div className="relative mt-2 h-[100px] w-[200px]">
-            {/* Seal Image */}
-            <Image 
+          <div className="relative mt-4 h-[110px] w-[160px]">
+            {/* Seal Image: Positioned within the container, at the back. */}
+            <img 
               src={seal.src}
               alt="Official Seal"
-              width={80}
-              height={80}
-              className="absolute bottom-0 left-0 w-[80px] h-[80px] object-contain z-10"
+              width={100}
+              height={100}
+              className="absolute bottom-0 left-0 object-contain z-10"
             />
-            {/* Signature Image */}
-            <Image 
+            {/* Signature Image: Overlaps the seal, positioned within the container. */}
+            <img 
               src={sign.src}
               alt="Signature"
-              width={120}
-              height={60}
-              className="absolute top-0 left-[20px] w-[120px] object-contain z-20"
+              width={150}
+              height={80}
+              className="absolute top-[15px] left-[5px] object-contain z-20"
             />
           </div>
-          <p className="font-bold mt-">Ms. Preeti Daga</p>
+          <p className="font-bold mt-2">Ms. Preeti Daga</p>
         </div>
       </div>
     </div>

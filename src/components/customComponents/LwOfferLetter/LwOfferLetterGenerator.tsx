@@ -250,24 +250,31 @@ export default function OfferLetterGenerator(): JSX.Element {
     try {
       letterRef.current.style.display = 'block';
       
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Wait longer for all images to load properly
+      await new Promise(resolve => setTimeout(resolve, 2000));
       
       const canvas = await html2canvas(letterRef.current, {
-        scale: 2,
+        scale: 3,
         useCORS: true,
         allowTaint: true,
         backgroundColor: '#ffffff',
         logging: false,
+        imageTimeout: 15000,
         onclone: (clonedDoc) => {
-          const imgElement = clonedDoc.querySelector('img');
-          if (imgElement) {
-            return new Promise<void>((resolve) => {
-              if (imgElement.complete) {
-                resolve();
-              } else {
-                imgElement.onload = () => resolve();
-              }
+          // Wait for all images to load in the cloned document
+          const imgElements = clonedDoc.querySelectorAll('img');
+          if (imgElements.length > 0) {
+            const imagePromises = Array.from(imgElements).map((imgElement) => {
+              return new Promise<void>((resolve) => {
+                if (imgElement.complete && imgElement.naturalWidth > 0) {
+                  resolve();
+                } else {
+                  imgElement.onload = () => resolve();
+                  imgElement.onerror = () => resolve(); // Continue even if some images fail
+                }
+              });
             });
+            return Promise.all(imagePromises);
           }
           return Promise.resolve();
         }
@@ -297,14 +304,14 @@ export default function OfferLetterGenerator(): JSX.Element {
       
       const { canvas } = result;
       
-      const imgData = canvas.toDataURL('image/jpeg', 1.0);
+      const imgData = canvas.toDataURL('image/png', 1.0);
       const pdf = new jsPDF({
         orientation: 'portrait',
         unit: 'mm',
         format: 'a4'
       });
       
-      pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297);
+      pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
       
       const cleanName = formData!.fullName.replace(/\s+/g, '-').toLowerCase();
       pdf.save(`confirmation-letter-${cleanName}.pdf`);
@@ -348,14 +355,14 @@ export default function OfferLetterGenerator(): JSX.Element {
       
       const { canvas } = letterResult;
       
-      const imgData = canvas.toDataURL('image/jpeg', 1.0);
+      const imgData = canvas.toDataURL('image/png', 1.0);
       const pdf = new jsPDF({
         orientation: 'portrait',
         unit: 'mm',
         format: 'a4'
       });
       
-      pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297);
+      pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
       
       const pdfBase64 = pdf.output('datauristring');
       
