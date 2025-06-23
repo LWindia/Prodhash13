@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import React, { useEffect, useState, forwardRef } from 'react';
 import { OfferLetterFormData } from '../../../../types/offerLetter';
 import lwlogo from "../../../../public/assets/OfferLetter/LW JAZBAA.png";
@@ -85,13 +83,11 @@ const HtmlOfferLetter = forwardRef<HTMLDivElement, HtmlOfferLetterProps>(({ data
       className="w-[210mm] h-[297mm] mx-auto bg-white relative font-sans hidden overflow-hidden"
     >
       {/* Background image */}
-     <Image
-  src={lwlogo}
-  alt="Background"
-  fill
-  className="object-cover opacity-90 z-0"
-/>
-
+      <img 
+        src={lwlogo.src}
+        alt="Background"
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-90 z-0"
+      />
 
       {/* Content container */}
       <div className="relative z-20 pt-[240px] pl-[100px] pr-[60px] h-full box-border">
@@ -124,14 +120,13 @@ const HtmlOfferLetter = forwardRef<HTMLDivElement, HtmlOfferLetterProps>(({ data
           {/* Signature and Seal Container */}
           <div className="relative mt-4 h-[110px] w-[160px]">
             {/* Seal Image: Positioned within the container, at the back. */}
-            <Image 
-                src={seal}
-                alt="Official Seal"
-                width={100}
-                height={100}
-                className="absolute bottom-0 left-0 object-contain z-10"
-              />
-
+            <img 
+              src={seal.src}
+              alt="Official Seal"
+              width={100}
+              height={100}
+              className="absolute bottom-0 left-0 object-contain z-10"
+            />
             
             {/* Signature Image: Overlaps the seal, positioned within the container.
             <img 

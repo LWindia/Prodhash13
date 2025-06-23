@@ -15,6 +15,7 @@ export async function POST(request: Request) {
     }
 
     // Extract the base64 PDF data correctly from the data URI
+    // The data URI from jsPDF will be like: data:application/pdf;base64,JVBERi0xLjcKJ...
     const base64Data = pdfBase64.split(';base64,').pop();
     if (!base64Data) {
       return NextResponse.json(
@@ -22,9 +23,10 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-
+    
     const pdfBuffer = Buffer.from(base64Data, 'base64');
 
+    // Configure email transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
@@ -35,6 +37,7 @@ export async function POST(request: Request) {
       },
     });
 
+    // Email template
     const emailContent = `
       <div style="font-family: Arial, sans-serif; max-width: 1000px; margin: 0 auto;">
         <h2>Course Confirmation Letter</h2>
@@ -46,8 +49,9 @@ export async function POST(request: Request) {
       </div>
     `;
 
+    // Send email with attachment
     const info = await transporter.sendMail({
-      from: `LinuxWorld Informatics <${process.env.SMTP_FROM_EMAIL}>`,
+      from: `"LinuxWorld Informatics" <${process.env.SMTP_FROM_EMAIL}>`,
       to: email,
       subject: `Course Confirmation Letter - ${courseTitle}`,
       html: emailContent,

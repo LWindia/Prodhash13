@@ -5,8 +5,6 @@ import { useAssets } from '@/hooks/useAssets';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Plus, Upload, BookOpen, Image } from 'lucide-react';
-import { Image as ImageIcon } from 'lucide-react';
-
 
 export default function AdminHome() {
   const { courses, loading: coursesLoading } = useCourses();
@@ -24,7 +22,6 @@ export default function AdminHome() {
           <Link href="/admin/courses/new">
             <Button className="flex items-center gap-2">
               <Plus className="w-4 h-4" />
-
               New Course
             </Button>
           </Link>
