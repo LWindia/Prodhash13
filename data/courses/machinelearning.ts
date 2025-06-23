@@ -16,7 +16,7 @@ export const machinelearning: Course = {
     category: "DevOps & Cloud Computing",  // ✅ Fixed: Correct category
     shortDescription: "Industry Relevant & Recognized Training | Gain HandsOn Experience | Best-In-Class Content | Industry Use-Cases",
     paymentLink: "https://rzp.io/rzp/ZQbIl8C3",
-    backgroundImage: "/assets/cources/fullstackmern/devops-and-cloud-computing.jpg",
+    backgroundImage: "/assets/cources/fullstackmern/Machine-Learning.jpg",
  
   learningOutcomes: [
     "Foundations of Machine Learning and Deep Learning",
@@ -174,7 +174,7 @@ export const machinelearning: Course = {
         },
     ],
     
-    certificateImage: "/assets/cources/fullstackmern/Devops-with-aws-certificate.jpg",  // ✅ Fixed: More appropriate certificate
+    certificateImage: "/assets/cources/fullstackmern/ML-certificate.jpg",  // ✅ Fixed: More appropriate certificate
 
     project: [
         {
