@@ -1,75 +1,79 @@
+import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
+export const config = {
+  api: {
+    bodyParser: false, // disable default body parser
+  },
+};
 
+async function readRequestBody(request: Request): Promise<any> {
+  const bodyText = await request.text(); // handle as plain text
+  return JSON.parse(bodyText); // then parse manually
+}
 
-import { NextRequest, NextResponse } from 'next/server';
-
-export async function POST(request: NextRequest) {
+export async function POST(request: Request) {
   try {
-    const { email, fullName, status } = await request.json();
+    const body = await readRequestBody(request); // custom parser
+    const { email, fullName, pdfBase64, instituteName, courseTitle } = body;
 
-    console.log('API Route - Received data:', { email, fullName, status }); // Debug log
-
-    if (!email || !fullName || !status) {
-      return NextResponse.json(
-        { error: 'Email, fullName, and status are required' },
-        { status: 400 }
-      );
+    if (!email || !fullName || !pdfBase64) {
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Your Google Apps Script URL for updating status
-    const APPS_SCRIPT_UPDATE_URL = process.env.NEXT_PUBLIC_APPS_SCRIPT_UPDATE_URL || 
-      'https://script.google.com/macros/s/AKfycbwUjMPFTGF3cQ6QlLIC2l0yqbs8VTtg_q0z1k_iZfV_qRl-oV5cTXc8i7uQey7vCkDF/exec';
+    const base64Data = pdfBase64.split(';base64,').pop();
+    if (!base64Data) {
+      return NextResponse.json({ error: 'Invalid PDF data' }, { status: 400 });
+    }
 
-    console.log('API Route - Calling Google Apps Script with URL:', APPS_SCRIPT_UPDATE_URL); // Debug log
+    const pdfBuffer = Buffer.from(base64Data, 'base64');
 
-    const response = await fetch(APPS_SCRIPT_UPDATE_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: process.env.SMTP_SECURE === 'true',
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD,
       },
-      body: JSON.stringify({
-        action: 'updateStatus',
-        email: email.trim(),
-        fullName: fullName.trim(),
-        status: status.trim()
-      }),
     });
 
-    console.log('API Route - Google Apps Script response status:', response.status); // Debug log
+    const emailContent = `
+      <div style="font-family: Arial, sans-serif; max-width: 1000px; margin: 0 auto;">
+        <h2>Course Confirmation Letter</h2>
+        <p>Dear ${fullName},</p>
+        <p>Congratulations on your enrollment in the Summer Internship Program for ${courseTitle} at LinuxWorld Informatics Pvt. Ltd.</p>
+        <p>Please find attached your official confirmation letter for your records.</p>
+        <p>If you have any questions, please feel free to contact us.</p>
+        <p>Best Regards,<br>LinuxWorld Informatics Pvt. Ltd.</p>
+      </div>
+    `;
 
-    if (!response.ok) {
-      throw new Error(`Failed to update status: ${response.status} ${response.statusText}`);
-    }
-
-    const responseText = await response.text();
-    console.log('API Route - Google Apps Script response text:', responseText); // Debug log
-
-    let result;
-    try {
-      result = JSON.parse(responseText);
-    } catch (parseError) {
-      console.error('API Route - Error parsing response:', parseError);
-      throw new Error('Invalid response from Google Apps Script');
-    }
-
-    console.log('API Route - Parsed result:', result); // Debug log
-
-    if (result.error) {
-      throw new Error(result.error);
-    }
-
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Status updated successfully',
-      result 
+    const info = await transporter.sendMail({
+      from: `LinuxWorld Informatics <${process.env.SMTP_FROM_EMAIL}>`,
+      to: email,
+      subject: `Course Confirmation Letter - ${courseTitle}`,
+      html: emailContent,
+      attachments: [
+        {
+          filename: `confirmation-letter-${fullName.replace(/\s+/g, '-').toLowerCase()}.pdf`,
+          content: pdfBuffer,
+          contentType: 'application/pdf',
+        },
+      ],
     });
 
+    return NextResponse.json({
+      success: true,
+      messageId: info.messageId,
+      message: `Email sent successfully to ${email}`,
+    });
   } catch (error) {
-    console.error('API Route - Error updating status:', error);
+    console.error('Error sending email:', error);
     return NextResponse.json(
-      { 
-        error: error instanceof Error ? error.message : 'Failed to update status in Google Sheets',
-        details: error instanceof Error ? error.stack : 'Unknown error'
+      {
+        error: 'Failed to send email',
+        details: error instanceof Error ? error.message : 'Unknown error',
       },
       { status: 500 }
     );
