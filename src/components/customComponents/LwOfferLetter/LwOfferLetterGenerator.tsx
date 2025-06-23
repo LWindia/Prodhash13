@@ -177,6 +177,7 @@ export default function OfferLetterGenerator(): JSX.Element {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify({
           email: email.trim(),
@@ -336,7 +337,7 @@ export default function OfferLetterGenerator(): JSX.Element {
     }
   };
   
-  // Handle sending email with PDF attachment
+  // Updated email sending function with better error handling
   const handleSendEmail = async (): Promise<void> => {
     if (!formData) {
       setError('Please wait for resources to load before sending email.');
@@ -347,6 +348,18 @@ export default function OfferLetterGenerator(): JSX.Element {
       setIsSendingEmail(true);
       setError(null);
       
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        throw new Error('Invalid email format');
+      }
+      
+      // Validate required fields
+      if (!formData.fullName || !formData.email) {
+        throw new Error('Full name and email are required');
+      }
+      
+      console.log('Preparing letter for email...'); // Debug log
       const letterResult = await prepareLetter();
       
       if (!letterResult) {
@@ -355,6 +368,7 @@ export default function OfferLetterGenerator(): JSX.Element {
       
       const { canvas } = letterResult;
       
+      console.log('Generating PDF from canvas...'); // Debug log
       const imgData = canvas.toDataURL('image/png', 1.0);
       const pdf = new jsPDF({
         orientation: 'portrait',
@@ -364,25 +378,55 @@ export default function OfferLetterGenerator(): JSX.Element {
       
       pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
       
+      // Get the PDF as base64 data URI
       const pdfBase64 = pdf.output('datauristring');
+      
+      // Validate PDF was generated
+      if (!pdfBase64 || !pdfBase64.startsWith('data:application/pdf;base64,')) {
+        throw new Error('Failed to generate PDF data');
+      }
+      
+      console.log('PDF generated successfully, sending email...'); // Debug log
+      
+      // Prepare email data with proper validation
+      const emailData = {
+        email: formData.email.trim(),
+        fullName: formData.fullName.trim(),
+        pdfBase64: pdfBase64,
+        instituteName: formData.instituteName?.trim() || 'LinuxWorld Informatics Pvt. Ltd.',
+        courseTitle: formData.courseTitle?.trim() || 'Course'
+      };
+      
+      console.log('Email data prepared:', {
+        email: emailData.email,
+        fullName: emailData.fullName,
+        instituteName: emailData.instituteName,
+        courseTitle: emailData.courseTitle,
+        pdfBase64Length: emailData.pdfBase64.length
+      }); // Debug log
       
       const response = await fetch('/api/send-offer-letter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
-        body: JSON.stringify({
-          email: formData.email,
-          fullName: formData.fullName,
-          pdfBase64: pdfBase64,
-          instituteName: formData.instituteName,
-          courseTitle: formData.courseTitle
-        }),
+        body: JSON.stringify(emailData),
       });
       
-      const responseData = await response.json();
+      console.log('Email API response status:', response.status); // Debug log
       
+      // Check if response is ok before parsing JSON
       if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Email API error response:', errorText);
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      
+      const responseData = await response.json();
+      console.log('Email API response data:', responseData); // Debug log
+      
+      if (!responseData.success) {
         throw new Error(responseData.error || 'Failed to send email');
       }
       
@@ -397,11 +441,25 @@ export default function OfferLetterGenerator(): JSX.Element {
       
     } catch (err) {
       console.error('Error sending email:', err);
-      setError(typeof err === 'object' && err !== null && 'message' in err 
-        ? (err as Error).message 
-        : 'Failed to send email. Please try again.');
-        
-      toast.error("There was a problem sending the email. Please try again.");
+      
+      let errorMessage = 'Failed to send email. Please try again.';
+      
+      if (err instanceof Error) {
+        if (err.message.includes('Invalid email format')) {
+          errorMessage = 'Please enter a valid email address';
+        } else if (err.message.includes('required')) {
+          errorMessage = 'Please fill in all required fields';
+        } else if (err.message.includes('HTTP 400')) {
+          errorMessage = 'Invalid request data. Please check your information and try again.';
+        } else if (err.message.includes('HTTP 500')) {
+          errorMessage = 'Server error. Please try again later.';
+        } else {
+          errorMessage = err.message;
+        }
+      }
+      
+      setError(errorMessage);
+      toast.error(errorMessage);
     } finally {
       setIsSendingEmail(false);
     }
@@ -472,7 +530,8 @@ export default function OfferLetterGenerator(): JSX.Element {
             >
               {isSendingEmail ? 'Sending Email...' : 'Send via Email'}
             </Button>
-                        <Button variant="outline" onClick={() => setFormData(null)}>
+            
+            <Button variant="outline" onClick={() => setFormData(null)}>
               Create Another Letter
             </Button>
           </div>
