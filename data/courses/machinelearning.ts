@@ -2,7 +2,7 @@ import { Course } from "../../types/courses";
 
 export const machinelearning: Course = {
     _id: "machine-learning-deep-learning",  // ✅ Fixed: Removed extra space
-    title: "Machine Learning & Deep Learning for Real-World Intelligence",  // ✅ Fixed: Clean title
+    title: "[B] [R]Machine Learning & Deep Learning for Real-World Intelligence[/R] [/B]",  // ✅ Fixed: Clean title
     slug: "machine-learning-deep-learning",
     rating: 5,
     totalRatings: 10,
