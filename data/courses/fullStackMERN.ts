@@ -2,7 +2,7 @@
 import { Course } from "../../types/courses";
 export const fullStackMERN:Course = {
     _id: "full-stack-mern",
-    title: "[B] [R]Full Stack Web Development with MERN [/R] [/B] |",
+    title: "[B] [R]Full Stack Web Development with MERN [/R] [/B] ",
     slug: "full-stack-mern",
     rating: 5,
     totalRatings: 10,

@@ -2,7 +2,7 @@ import { Course } from "../../types/courses";
 
 export const awscloudcomputing: Course = {
     _id: "devops-Aws-cloud-computing",  // ✅ Fixed: Removed extra space
-    title: "DevOps & AWS Cloud Training",  // ✅ Fixed: Clean title
+    title: "[B] [R]DevOps & AWS Cloud Training[/R] [/B]",  // ✅ Fixed: Clean title
     slug: "devops-Aws-cloud-computing",
     rating: 5,
     totalRatings: 10,
