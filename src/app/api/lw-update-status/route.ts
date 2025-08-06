@@ -1,12 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-export const config = {
-  api: {
-    bodyParser: false, // disable default body parser
-  },
-};
-
 async function readRequestBody(request: Request): Promise<any> {
   const bodyText = await request.text(); // handle as plain text
   return JSON.parse(bodyText); // then parse manually
