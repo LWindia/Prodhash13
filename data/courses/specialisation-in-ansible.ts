@@ -10,12 +10,12 @@ export const specialisationInAnsible: Course = {
     duration: "Beginner to Advance",
     programBy: "Vimal Daga",
     hours: "24+",
-    price: 4900,
+    price: 2500,
     originalPrice: 10000,
     enrolledStudents: 12000,
     category: "DevOps",
     shortDescription: "Industry-Relevant & Recognized Training | Hands-On Automation Experience | Advanced Playbook Techniques | Real-Time Industry Use Cases",
-    paymentLink: "https://rzp.io/rzp/fhhN2Ew",
+    paymentLink: "https://rzp.io/rzp/YgZsD9b",
     backgroundImage: "/assets/cources/courseDetails/Hero.jpeg",
 
     learningOutcomes: [
