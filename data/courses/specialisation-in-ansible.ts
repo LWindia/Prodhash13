@@ -1,5 +1,6 @@
 import { Course } from "../../types/courses";
 
+// Updated: Price changed to 2500 and payment link updated - 2024
 export const specialisationInAnsible: Course = {
     _id: "specialisation-in-ansible",
      title: "[B][R]Automation with Ansible[/R][/B] | Simplify Configuration Management Tasks",
