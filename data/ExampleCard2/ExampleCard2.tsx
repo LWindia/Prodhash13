@@ -23,7 +23,7 @@ export const courseInfo = [
       title: "Data-Structure-&-Algorithms-(DSA)",
       rating: 4.9,
       totalRatings: 3201,
-      duration: "4 Months",
+      duration: "1 November 2025 starting",
       hours: "15+",
       skills: ["Excel", "MySQL", "Data Visualization", "Data Reporting"],
       backgroundImage: "/assets/cources/Data-Structure-&-Algorithms-(DSA)-for-FAANG.jpg"

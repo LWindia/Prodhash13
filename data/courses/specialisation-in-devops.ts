@@ -6,7 +6,7 @@ export const  specialisationInDevops:Course = {
     slug: "specialisation-in-devops",
     rating: 5,
     totalRatings: 10,
-    duration: "4 Months",
+    duration: "1 November 2025 starting",
     globalStatus: "GLOBALLY RECOGNISED PROGRAM",
     programBy: "Vimal Daga",
     hours: "310+",
