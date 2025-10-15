@@ -2,7 +2,7 @@
 import React from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Clock, Share2, Phone, User } from "lucide-react";
+import { Clock, Share2, Phone, User, Calendar } from "lucide-react";
 import Image from 'next/image';
 import { courseInfo } from "../../../../../data/courses/courses";
 
@@ -307,13 +307,15 @@ const CourseHero: React.FC<CourseHeroProps> = ({ courseId }) => {
                 </Badge>
 
 
-                {/*This badge is only made for ai course the badge color is mixed with the bg color only visible in ai course if you have to use this then use in json */}
-                <Badge 
-                  variant="secondary" 
-                  className="px-3 py-1 text-xs rounded-full bg-white text-red-700 hover:bg-gray-200"
-                >
-                   {course.startDate}
-                </Badge>
+                {/* Start Date Badge - visible for all courses */}
+                {course.startDate && (
+                  <Badge 
+                    variant="secondary" 
+                    className="px-3 py-1 text-xs rounded-full bg-green-100 text-green-700 hover:bg-green-200"
+                  >
+                    <Calendar className="h-4 w-4" /> &nbsp; {course.startDate}
+                  </Badge>
+                )}
               </div>
 
               <div className="flex">
