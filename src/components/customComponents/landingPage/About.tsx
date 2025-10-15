@@ -34,8 +34,8 @@ const About = () => {
                   <Image
                     className="animate-spin-slow"
                     src="/assets/landingPage/MakingIndiafutureReady.svg"
-                    layout="fill"
-                    objectFit="contain"
+                    fill
+                    style={{ objectFit: 'contain' }}
                     alt="Making India future ready"
                   />
                 </div>
@@ -53,7 +53,7 @@ const About = () => {
                       src="/assets/file_2025-03-07_13.08.30.png"
                       width={400}
                       height={200}
-                      objectFit="contain"
+                      style={{ objectFit: 'contain' }}
                       alt="Card image"
                     />
                   </div>
@@ -71,7 +71,7 @@ const About = () => {
                       src="/assets/file_2025-03-07_12.54.08.png"
                       width={400}
                       height={200}
-                      objectFit="contain"
+                      style={{ objectFit: 'contain' }}
                       alt="Card image"
                     />
                   </div>
@@ -84,8 +84,8 @@ const About = () => {
                   <div className="w-full h-full relative">
                     <Image
                       src="/assets/file_2025-03-07_13.01.28.png"
-                      layout="fill"
-                      objectFit="cover"
+                      fill
+                      style={{ objectFit: 'cover' }}
                       alt="Card image"
                     />
                   </div>
