@@ -188,7 +188,7 @@ export const faqContent: FAQContent = {
     Duration: [
       {
         question: "How long does the program last?",
-        answer: "The program has a duration of 3 months, designed to provide in-depth learning and practical exposure.",
+        answer: "The program has a duration of 4 months, designed to provide in-depth learning and practical exposure.",
       },
       {
         question: "What is the mode of delivery?",
