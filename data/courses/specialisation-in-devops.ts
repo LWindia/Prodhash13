@@ -2,20 +2,20 @@
 import { Course } from "../../types/courses";
 export const  specialisationInDevops:Course = {
     _id: "specialisation-in-devops",
-    title: "[B] [R]Specialisation in  DevOps [/R] [/B] | Become a DevOps Expert in 3 months",
+    title: "[B] [R]Specialisation in  DevOps [/R] [/B] | Become a DevOps Expert | Starting 1st November 2025",
     slug: "specialisation-in-devops",
     rating: 5,
     totalRatings: 10,
-    duration: "3 Months",
+    duration: "4 Months",
     globalStatus: "GLOBALLY RECOGNISED PROGRAM",
     programBy: "Vimal Daga",
     hours: "310+",
-    price: 20000,
+    price: 17500,
     originalPrice: 45000,
     enrolledStudents: 12000,
     category: "DevOps",
     shortDescription: "Industry Relevant & Recognized Training | Gain HandsOn Experience | Best-In-Class Content | Industry Use-Cases",
-    paymentLink:"https://rzp.io/rzp/8nXh0w8",
+    paymentLink:"https://rzp.io/rzp/sp-in-devops",
     backgroundImage: "/assets/cources/courseDetails/Hero.jpeg",
  
     learningOutcomes: [
@@ -29,7 +29,7 @@ export const  specialisationInDevops:Course = {
     ],
     features: [
       "Most Relevant DevOps Tips & Tricks to become more productive",
-      "Technical Support for 90 days",
+      "Technical Support for 180 days",
       "Premium #13 DevOps Community Membership"
     ],
     skills: [
