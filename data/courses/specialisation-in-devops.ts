@@ -726,7 +726,7 @@ export const  specialisationInDevops:Course = {
         description: "Hours of learning",
       },
       {
-        number: "1",
+        number: "4",
         description: "Capstone Project",
       },
 
