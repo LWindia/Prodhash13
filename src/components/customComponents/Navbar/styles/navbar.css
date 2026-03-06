@@ -1,0 +1,89 @@
+/* Base dropdown styling */
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-menu-content {
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 50;
+}
+
+/* Specific styles for each dropdown */
+.dropdown-workingProfessionals {
+  animation: dropdownFadeProfessionals 0.2s ease-out;
+}
+
+.dropdown-collegeStudents {
+  animation: dropdownFadeStudents 0.2s ease-out;
+}
+
+/* Animations for each dropdown */
+@keyframes dropdownFadeProfessionals {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) translateX(-85%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-85%);
+  }
+}
+
+@keyframes dropdownFadeStudents {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) translateX(-65%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-65%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .dropdown-workingProfessionals {
+    width: 90vw !important;
+    transform: translateX(-75%) !important;
+  }
+  
+  .dropdown-collegeStudents {
+    width: 90vw !important;
+    transform: translateX(-55%) !important;
+  }
+}
+
+/* Scrollbar styling */
+.dropdown-menu-content {
+  scrollbar-width: thin;
+  scrollbar-color: #888888 #f1f1f1;
+}
+
+.dropdown-menu-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-menu-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.dropdown-menu-content::-webkit-scrollbar-thumb {
+  background: #888888;
+  border-radius: 3px;
+}
+
+.dropdown-menu-content::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* Overlay styling */
+.dropdown-overlay {
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+}

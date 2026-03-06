@@ -1,0 +1,257 @@
+import { Course } from "../../types/courses";
+
+export const awscloudcomputing: Course = {
+    _id: "devops-Aws-cloud-computing",  // ✅ Fixed: Removed extra space
+    title: "[B] [R]DevOps & AWS Cloud Training[/R] [/B]",  // ✅ Fixed: Clean title
+    slug: "devops-Aws-cloud-computing",
+    rating: 5,
+    totalRatings: 10,
+    duration: "From Beginner to Advance Level",
+    globalStatus: "GLOBALLY RECOGNISED PROGRAM",
+    programBy: "Vimal Daga",
+    hours: "50+",
+    price: 6500,
+    originalPrice: 18000,
+    enrolledStudents: 12000,
+    category: "DevOps & Cloud Computing",  // ✅ Fixed: Correct category
+    shortDescription: "Industry Relevant & Recognized Training | Gain HandsOn Experience | Best-In-Class Content | Industry Use-Cases",
+    paymentLink: "https://rzp.io/rzp/ZQbIl8C3",
+    backgroundImage: "/assets/cources/fullstackmern/devops-and-cloud-computing.jpg",
+ 
+    learningOutcomes: [
+        "Docker",
+        "Jenkins",
+        "Kubernetes",
+        "Prometheus",
+        "Grafana",
+        "Terraform",
+        "AWS (IAM, EC2, S3, ECR, VPC, EKS)",
+        "And much more…"
+    ],
+    
+    features: [
+        "Most Relevant Tips & Tricks",
+        "Technical Support for 90 Days",
+        "Real-World Industry Use Cases",
+        "Premium Discord Community Access"
+    ],
+    
+    skills: [
+        "Linux Administration",
+        "Shell Scripting",
+        "System Security",
+        "Networking"
+    ],
+    
+    requirements: [
+        "Basic computer knowledge",
+        "Interest in system administration"
+    ],
+    
+    level: "Beginner to Advanced",
+    language: "English",
+    lastUpdated: "2024-01",
+    
+    module: [
+        {
+            id: 1,
+            title: "Docker – Containerization and Application Packaging",
+            description: "Learn how to containerize applications using Docker, from building images to managing volumes and multi-container setups.",
+            content: [
+                "Introduction to containerization and how it differs from traditional VMs",
+                "Installing and configuring Docker on Windows/macOS",
+                "Understanding Docker Images, Containers, and Layers",
+                "Creating and customizing Dockerfiles for real applications",
+                "Using docker build, run, exec, ps, logs",
+                "Volume and network management in Docker",
+                "Multi-container architecture using Docker Compose",
+                "Hosting and pulling images from Docker Hub"
+            ]
+        },
+        {
+            id: 2,
+            title: "Jenkins – Automating CI/CD Pipelines",
+            description: "Automate build, test, and deployment workflows with Jenkins using pipelines, webhooks, and integrations.",
+            content: [
+                "Understanding Continuous Integration and Continuous Delivery (CI/CD)",
+                "Installing Jenkins and managing jobs on the Jenkins UI",
+                "Creating freestyle and pipeline jobs",
+                "Writing and configuring Jenkinsfiles (Declarative Syntax)",
+                "Setting up Webhooks to trigger builds automatically from GitHub",
+                "Integrating Jenkins with Docker (build and deploy images via Jenkins)",
+                "Implementing build, test, deploy stages",
+                "Notifying users via Slack or Email when builds fail or pass",
+                "Best practices for job management and pipeline security"
+            ]
+        },
+        {
+            id: 3,
+            title: "Kubernetes – Container Orchestration and Scalability",
+            description: "Master Kubernetes basics to run and scale containerized applications in production environments.",
+            content: [
+                "Core Kubernetes concepts: Pod, Node, ReplicaSet, Deployment, Service",
+                "Installing Minikube or accessing Kubernetes via AWS EKS (demo)",
+                "Writing and deploying YAML files for Pods, Deployments, and Services",
+                "Managing application rollouts, updates, and rollback strategies",
+                "Using ConfigMaps and Secrets for secure configuration",
+                "Exposing applications via ClusterIP, NodePort, and Ingress",
+                "Implementing Horizontal Pod Autoscaling (HPA)",
+                "Overview of StatefulSets for stateful applications"
+            ]
+        },
+        {
+            id: 4,
+            title: "Prometheus & Grafana – Monitoring and Alerting",
+            description: "Gain hands-on experience with Prometheus and Grafana to monitor system metrics and trigger alerts.",
+            content: [
+                "Understanding the importance of observability in DevOps",
+                "Installing Prometheus in a containerized or K8s environment",
+                "Configuring prometheus.yml and adding scrape targets",
+                "Using node_exporter and cAdvisor to monitor system and container metrics",
+                "Alerting configuration using Prometheus Alertmanager",
+                "Installing and configuring Grafana",
+                "Building custom dashboards to visualize real-time metrics (CPU, memory, traffic)",
+                "Integrating with email or Slack for alerts"
+            ]
+        },
+        {
+            id: 5,
+            title: "Terraform – Automating Infrastructure Provisioning",
+            description: "Use Infrastructure as Code (IaC) to provision and manage cloud infrastructure with Terraform.",
+            content: [
+                "What is Infrastructure as Code (IaC) and Terraform architecture",
+                "Installing Terraform and understanding .tf file structure",
+                "Working with Providers, Resources, Variables, Outputs",
+                "Writing Terraform configurations to launch EC2, create S3 buckets, and IAM roles",
+                "Executing terraform init, plan, apply, destroy",
+                "Managing state files and introducing remote backends (basics)",
+                "Modularizing Terraform code for reusability and maintainability"
+            ]
+        },
+        {
+            id: 6,
+            title: "AWS Cloud for DevOps – Core Service Integration",
+            description: "Learn essential AWS services that support DevOps practices including EC2, S3, IAM, and EKS.",
+            content: [
+                "Introduction to AWS global infrastructure (regions, AZs, services)",
+                "Identity and Access Management (IAM): Users, Roles, Policies",
+                "EC2: Launching, managing instances, security groups, key-pairs",
+                "S3: Bucket creation, object management, static site hosting",
+                "ECR: Hosting Docker container images securely",
+                "VPC (Basics): Public/private subnets, routing, NAT",
+                "EKS: Managed Kubernetes cluster overview and setup walkthrough",
+                "AWS CLI: Installing and using CLI for automation"
+            ]
+        }
+    ],
+
+    highlights: [
+        {
+            number: "6+",
+            description: "Modules",
+        },
+        {
+            number: "50+",
+            description: "Hours of learning",
+        },
+        {
+            number: "3",
+            description: "Capstone Project",
+        },
+    ],
+    
+    certificateImage: "/assets/cources/fullstackmern/Devops-with-aws-certificate.jpg",  // ✅ Fixed: More appropriate certificate
+
+    project: [
+        {
+            icon: "/assets/Projects/container.png",
+            title: "CI/CD Pipeline with Docker & Jenkins",
+            description: "Build a complete CI/CD pipeline that automatically builds, tests, and deploys a web application using Docker containers and Jenkins automation.",
+            skills: ["Docker", "Jenkins", "CI/CD", "Git", "Automated Testing", "Deployment"],
+        },
+        {
+            icon: "/assets/Projects/kubernetes.png",
+            title: "Kubernetes Cluster Management",
+            description: "Deploy and manage a scalable microservices application on Kubernetes with auto-scaling, load balancing, and monitoring.",
+            skills: ["Kubernetes", "Docker", "Microservices", "Load Balancing", "Auto-scaling", "Monitoring"],
+        },
+        {
+            icon: "/assets/Projects/terraform.png",
+            title: "Infrastructure as Code with Terraform",
+            description: "Provision and manage AWS infrastructure resources using Terraform, including VPC, EC2, S3, and RDS setup.",
+            skills: ["Terraform", "AWS", "Infrastructure as Code", "VPC", "EC2", "S3"],
+        },
+    ],
+    
+   programFor: [
+  { src: "/assets/cources/programFor/programfor1.jpg", alt: "College Students", text: "Students" },
+  { src: "/assets/cources/programFor/programfor2.jpg", alt: "College Students", text: "Working professionals" },
+  { src: "/assets/cources/programFor/programfor3.jpg", alt: "College Students", text: "Entrepreneurs" },
+  { src: "/assets/cources/programFor/programfor4.jpg", alt: "College Students", text: "Freelancers" },
+  { src: "/assets/cources/programFor/programfor5.jpg", alt: "College Students", text: "Freshers" },
+  { src: "/assets/cources/programFor/programfor6.jpg", alt: "College Students", text: "System Administrators" },
+  { src: "/assets/cources/programFor/programfor7.jpg", alt: "College Students", text: "Security Engineers " },
+  { src: "/assets/cources/programFor/programfor8.jpg", alt: "College Students", text: "Cloud Professionals " },
+  { src: "/assets/cources/programFor/programfor9.jpg", alt: "College Students", text: "Software Engineers " },
+  { src: "/assets/cources/programFor/programfor10.jpg", alt: "College Students", text: "Solution & Infrastructure Architects " },
+],
+
+    toolsData: {
+        sectionTitle: "Tools & Technologies Covered in DevOps & AWS Cloud Computing",
+        category: "DevOps & Cloud",
+        toolsCount: "20+",
+        displayImage: "/assets/cources/fullstackmern/DevOps-AWS-technologies.jpg",
+        tools: [
+            {
+                id: "",
+                icon: "Database",
+                title: "Docker & Containerization"
+            },
+            {
+                id: "",
+                icon: "Server",
+                title: "Kubernetes Orchestration"
+            },
+            {
+                id: "",
+                icon: "BarChart",
+                title: "AWS EC2, S3, and IAM"
+            },
+            {
+                id: "",
+                icon: "Terminal",
+                title: "Linux Commands & Shell Scripting"
+            },
+            {
+                id: "",
+                icon: "TrendingUp",
+                title: "CI/CD with GitHub Actions"
+            },
+            {
+                id: "",
+                icon: "Cpu",
+                title: "Jenkins Automation"
+            },
+            {
+                id: "",
+                icon: "Database",
+                title: "Terraform Infrastructure as Code"
+            },
+            {
+                id: "",
+                icon: "Terminal",
+                title: "AWS CLI & SDK Integration"
+            },
+            {
+                id: "",
+                icon: "BarChart",
+                title: "Monitoring with Prometheus & Grafana"
+            },
+            {
+                id: "",
+                icon: "Cpu",
+                title: "Ansible for Configuration Management"
+            }
+        ]
+    },
+}
